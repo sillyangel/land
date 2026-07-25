@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>angel's posts</title>
+  <meta name="description" content="angel's website, high school junior student." />
+  <meta name="author" content="angel" />
+
+  <meta name="theme-color" content="#f2f2f3" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="angel - sillyangel.dev" />
+  <meta property="og:description" content="angel's website, high school junior student." />
+  <meta property="og:url" content="https://sillyangel.dev" />
+  <meta property="og:site_name" content="sillyangel" />
+  <meta property="og:image" content="https://sillyangel.dev/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="angel — sillyangel.dev" />
+  <meta name="twitter:description" content="angel's website, high school junior student." />
+  <meta name="twitter:image" content="https://sillyangel.dev/og.png" />
+
+  <link rel="canonical" href="https://sillyangel.dev" />
+
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+ 
+  <script defer src="https://umami.sillyangel.dev/script.js" data-website-id="e4f7b4b4-215f-44de-a2ae-23df17ffe128"></script>
+  <script defer src="https://umami.sillyangel.dev/recorder.js" data-website-id="e4f7b4b4-215f-44de-a2ae-23df17ffe128"></script>
+  
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      background: #f2f2f3;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    /* Main link */
+
+    .hero-link {
+      position: fixed;
+      top: 1.5rem;
+      left: 2rem;
+      font-size: clamp(5rem, 20vw, 18rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: #9c9ca1;
+      opacity: 0.55;
+      text-decoration: none;
+      user-select: none;
+      transition: color 0.15s ease, opacity 0.15s ease;
+    }
+
+    .hero-link:hover {
+      color: #e6e6e8;
+      opacity: 0.1;
+    }
+
+    #posts {
+      position: fixed;
+      left: 2rem;
+      top: clamp(7rem, 22vw, 20rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      z-index: 5;
+    }
+
+#posts a {
+  position: relative;
+  width: fit-content;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #9b9ba1;
+  text-decoration: none;
+  opacity: 1;
+  letter-spacing: 0;
+  transform: translateX(0);
+  transition: color 0.15s ease, transform 0.2s ease;
+}
+
+#posts a::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#posts a:hover {
+  color: #555;
+  transform: translateX(6px);
+}
+
+#posts a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+    /* Footer */
+
+    footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 1.5rem;
+      font-size: 0.75rem;
+      z-index: 10;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .footer-left {
+      position: absolute;
+      left: 1.5rem;
+      color: #9b9ba1;
+    }
+
+    .footer-right {
+      position: absolute;
+      right: 1.5rem;
+      color: #9b9ba1;
+    }
+
+    /* Dark mode */
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #121212;
+      }
+
+      .hero-link {
+        color: #bdbdbd;
+      }
+
+      .hero-link:hover {
+        color: #7a7a7a;
+        opacity: 0.2;
+      }
+
+      #posts a {
+        color: #b0b0b0;
+      }
+
+      #posts a:hover {
+        color: #ffffff;
+      }
+
+      .footer-left,
+      .footer-right {
+        color: #b0b0b0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="hero-link" href="https://sillyangel.dev"  >
+    posts
+  </a>
+
+  <nav id="posts"></nav>
+
+  <footer>
+    <span class="footer-left">
+      © <span id="year"></span> sillyangel
+    </span>
+
+    <span class="footer-right" id="time"></span>
+  </footer>
+
+  <script>
+    // Current year
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Live Texas time
+
+    function updateTime() {
+      const now = new Date();
+
+      const formatter = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Chicago",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true
+      });
+
+      document.getElementById("time").textContent =
+        formatter.format(now);
+    }
+
+    updateTime();
+    setInterval(updateTime, 1000);
+
+
+    const posts = [
+      {
+        name: "#2",
+        url: "https://sillyangel.dev/posts/modding"
+      },
+      {
+        name: "#1",
+        url: "https://sillyangel.dev/posts/selfhosting"
+      }
+    ];
+
+    const socialContainer =
+      document.getElementById("posts");
+
+    posts.forEach((link) => {
+      const a = document.createElement("a");
+
+      a.href = link.url;
+      a.textContent = link.name;
+
+      socialContainer.appendChild(a);
+    });
+  </script>
+</body>
+</html>
