@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://sillyangel.dev/</loc>
+  </url>
+
+  <url>
+    <loc>https://sillyangel.dev/posts/</loc>
+  </url>
+
+  <url>
+    <loc>https://sillyangel.dev/posts/modding</loc>
+  </url>
+
+  <url>
+    <loc>https://sillyangel.dev/posts/selfhosting</loc>
+  </url>
+
+</urlset>
